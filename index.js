@@ -1,12 +1,22 @@
 const TelegramBot = require('node-telegram-bot-api');
 const path = require('path');
+const http = require('http');
 
-// Токен берём из переменной окружения
 const token = process.env.TELEGRAM_BOT_TOKEN;
 if (!token) {
   console.error('Error: TELEGRAM_BOT_TOKEN is not set');
   process.exit(1);
 }
+
+const PORT = process.env.PORT || 3000;
+
+// Запускаем простой HTTP сервер
+http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Bot is running\n');
+}).listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
 
 const bot = new TelegramBot(token, { polling: true });
 
