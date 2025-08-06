@@ -31,7 +31,7 @@ bot.onText(/\/start/, async (msg) => {
   const caption = `🎁 Try your luck in daily gift raffles at @casemirror 🎮
 ✨ Open cases and win amazing prizes every day!`;
 
-  const photoPath = path.join(__dirname, 'photo1.png');
+  const photoPath = path.join(__dirname, 'photo1.jpg');
   const photoStream = fs.createReadStream(photoPath);
 
   const options = {
