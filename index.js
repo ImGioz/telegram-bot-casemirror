@@ -35,19 +35,18 @@ bot.onText(/\/start/, async (msg) => {
   const photoStream = fs.createReadStream(photoPath);
 
   const options = {
-    caption,
-    reply_markup: {
-      inline_keyboard: [
-        [
-          [{ text: '🚀 Case App', url: 'https://t.me/casemirror_official_bot/Case' }],
-          [{ text: '🚀 Case Russian App', url: 'https://t.me/case_official_ru_bot/case' }],
-          [{ text: '📝 Agreement', url: 'https://t.me/case_official_bot/agreement' }],
-          [{ text: '👥 Join Community', url: 'https://t.me/casemirror' }],
-          [{ text: '🎧 Support', url: 'https://t.me/casesupbot' }]
-        ]
-      ]
-    }
-  };
+  caption,
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: '🚀 Case App', url: 'https://t.me/casemirror_official_bot/Case' }],
+      [{ text: '🚀 Case Russian App', url: 'https://t.me/case_official_ru_bot/case' }],
+      [{ text: '📝 Agreement', url: 'https://t.me/case_official_bot/agreement' }],
+      [{ text: '👥 Join Community', url: 'https://t.me/casemirror' }],
+      [{ text: '🎧 Support', url: 'https://t.me/casesupbot' }]
+    ]
+  }
+};
+
 
   try {
     await bot.sendPhoto(chatId, photoStream, options);
